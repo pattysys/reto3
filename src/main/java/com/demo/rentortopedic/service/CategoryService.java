@@ -22,10 +22,10 @@ public class CategoryService {
     }
 
     public Category save(Category category) {
-        if (category.getIdCategory() == null) {
+        if (category.getId() == null) {
             return categoryRepository.save(category);
         } else {
-            Optional<Category> category1 = categoryRepository.getCategory(category.getIdCategory());
+            Optional<Category> category1 = categoryRepository.getCategory(category.getId());
             if (category1.isEmpty()) {
                 return categoryRepository.save(category);
             } else {
@@ -35,8 +35,8 @@ public class CategoryService {
     }
 
     public Category update(Category category){
-        if(category.getIdCategory()!=null){
-            Optional<Category>g=categoryRepository.getCategory(category.getIdCategory());
+        if(category.getId()!=null){
+            Optional<Category>g=categoryRepository.getCategory(category.getId());
             if(!g.isEmpty()){
                 if(category.getDescription()!=null){
                     g.get().setDescription(category.getDescription());

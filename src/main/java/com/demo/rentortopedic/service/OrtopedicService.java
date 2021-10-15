@@ -23,10 +23,10 @@ public class OrtopedicService {
     }
 
     public Ortopedic save(Ortopedic ortopedic){
-        if(ortopedic.getIdOrtopedic()==null){
+        if(ortopedic.getId()==null){
             return ortopedicRepository.save(ortopedic);
         }else{
-            Optional<Ortopedic> e=ortopedicRepository.getOrtopedic(ortopedic.getIdOrtopedic());
+            Optional<Ortopedic> e=ortopedicRepository.getOrtopedic(ortopedic.getId());
             if(e.isEmpty()){
                 return ortopedicRepository.save(ortopedic);
             }else{
@@ -37,8 +37,8 @@ public class OrtopedicService {
 
     public Ortopedic update(Ortopedic ortopedic){
         this.ortopedic = ortopedic;
-        if(ortopedic.getIdOrtopedic()!=null){
-            Optional<Ortopedic> e=ortopedicRepository.getOrtopedic(ortopedic.getIdOrtopedic());
+        if(ortopedic.getId()!=null){
+            Optional<Ortopedic> e=ortopedicRepository.getOrtopedic(ortopedic.getId());
             if(!e.isEmpty()){
                 if(ortopedic.getName()!=null){
                     e.get().setName(ortopedic.getName());

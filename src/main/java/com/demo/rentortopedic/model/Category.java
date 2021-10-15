@@ -9,9 +9,17 @@ import java.util.List;
 @Entity
 @Table(name = "category")
 public class Category implements Serializable {
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idCategory;
+    private Integer id;
     private String name;
 
     private String description;
@@ -20,13 +28,7 @@ public class Category implements Serializable {
     @JsonIgnoreProperties("category")
     private List<Ortopedic> ortopedics;
 
-    public Integer getIdCategory() {
-        return idCategory;
-    }
 
-    public void setIdCategory(Integer idCategory) {
-        this.idCategory = idCategory;
-    }
 
     public String getName() {
         return name;

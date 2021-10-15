@@ -10,16 +10,18 @@ import java.util.List;
 @Table(name = "ortopedic")
 public class Ortopedic implements Serializable {
 
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idOrtopedic;
+    private Integer id;
     private String name;
     private String brand;
     private Integer year;
     private String description;
 
     @ManyToOne
-    @JoinColumn(name = "categoryId")
+    @JoinColumn(name = "idCategory")
     @JsonIgnoreProperties("ortopedics")
     private Category category;
 
@@ -32,19 +34,16 @@ public class Ortopedic implements Serializable {
     @JsonIgnoreProperties({"ortopedic","messages"})
     public List<Reservation> reservations;
 
-
-    public Integer getIdOrtopedic() {
-        return idOrtopedic;
+    public Integer getId() {
+        return id;
     }
 
-    public void setIdOrtopedic(Integer idOrtopedic) {
-        this.idOrtopedic = idOrtopedic;
+    public void setId(Integer id) {
+        this.id = id;
     }
-
     public String getName() {
         return name;
     }
-
     public void setName(String name) {
         this.name = name;
     }
